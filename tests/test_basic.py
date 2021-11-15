@@ -23,4 +23,4 @@ def test_find_peaks_example():
 
 def tests_rand_is_gr():
     peaks = peak_finder.basic.find_peaks([6,0,0])
-    assert peaks == [6]
+    assert peaks == []
