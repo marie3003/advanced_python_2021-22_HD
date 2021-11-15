@@ -27,9 +27,14 @@ def find_peaks(list_of_intensities):
         This is just a place holder for the TDD part :)
 
     """
-    local_maxima = []
+    
 
     maxima = []
+    list_of_intensities_original = list_of_intensities.copy()
+
+    if type(list_of_intensities[0]) == type((0,0,0)):
+        for position, tuple in enumerate(list_of_intensities):
+            list_of_intensities[position] = tuple[0] + tuple[1] + tuple[2]
 
     for pos, value in enumerate(list_of_intensities):
         if pos == 0 or pos == len(list_of_intensities) - 1:
@@ -37,11 +42,13 @@ def find_peaks(list_of_intensities):
         pre_value = list_of_intensities[pos - 1]
         post_value = list_of_intensities[pos + 1]
         if pre_value < value > post_value:
-            maxima.append(value)
+            maxima.append(list_of_intensities_original[pos])
     return  maxima
 
 
     """
+    local_maxima = []
+
     for number in list_of_intensities:
         if number == 0:
             if list_of_intensities[number] == max(list_of_intensities[number:number +2]):

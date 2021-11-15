@@ -23,4 +23,8 @@ def test_find_peaks_example():
 
 def tests_rand_is_gr():
     peaks = peak_finder.basic.find_peaks([6,0,0])
-    assert peaks == []
+    assert peaks == [] #eig [6] aber im jetzigen code werden randfälle ignoriert
+
+def test_tuple():
+    peaks = peak_finder.basic.find_peaks([(1,0,0),(0,5,3), (8,5,2), (2,3,0)])
+    assert peaks == [(8,5,2)]
